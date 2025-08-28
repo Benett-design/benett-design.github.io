@@ -21,7 +21,6 @@ jobs:
         uses: withastro/action@v4
         with:
           path: .           # Root of your Astro project
-          out-dir: docs     # Output directory from Astro build
           node-version: 20  # Node version
 
   deploy:
