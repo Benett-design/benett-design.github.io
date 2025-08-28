@@ -1,5 +1,14 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+//commented-import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
-export default defineConfig({});
+//commented-export default defineConfig({});
+
+import { defineConfig } from 'astro/config';
+
+export default defineConfig({
+  site: 'https://Benett-design.github.io/portfolio',
+  base: '/portfolio/',
+  outDir: './docs',   // output static files here
+});
+
