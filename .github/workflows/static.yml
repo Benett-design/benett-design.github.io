@@ -17,9 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: portfolio   # 👈 run everything inside your project folder
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,17 +26,20 @@ jobs:
         with:
           node-version: 20
           cache: "npm"
+          cache-dependency-path: portfolio/package-lock.json  # 👈 point to lock file
 
       - name: Install dependencies
+        working-directory: portfolio   # 👈 run inside portfolio folder
         run: npm ci
 
       - name: Build
+        working-directory: portfolio   # 👈 run inside portfolio folder
         run: npm run build
 
       - name: Upload build output
         uses: actions/upload-pages-artifact@v4
         with:
-          path: portfolio/dist   # 👈 upload Astro’s build output
+          path: portfolio/dist   # 👈 Astro’s build output
 
   deploy:
     environment:
@@ -50,4 +50,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
