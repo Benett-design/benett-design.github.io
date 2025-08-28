@@ -7,7 +7,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://Benett-design.github.io/portfolio',
+  site: 'https://Benett-design.github.io',
   outDir: './docs'  
 });
 
